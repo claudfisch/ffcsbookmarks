@@ -2,12 +2,13 @@
 Firefox clientside bookmarks of nextcloud
 
 ## Extension contains
-> Popup: only the right to add, modify and delete bookmarks
+> Popup: only the rights to add, modify and delete bookmarks
 
 
-> Sidebar: only the right to search a list of bookmarks
+> Sidebar: only the rights to search a list of bookmarks
 
 ## Available features
+> Screenshots coming soon
 - add bookmark
 - search bookmark
 - modify bookmark
