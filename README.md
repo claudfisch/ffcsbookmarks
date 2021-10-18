@@ -22,6 +22,9 @@ Firefox clientside bookmarks of nextcloud
 - Folder delete
 - Add a bookmark to an exists Folder
 
+## Screenshots
+[[screenshots/Popup\_BookmarkNotAdded]]
+
 ## Disclaimer
 **Ready for using**.
 
