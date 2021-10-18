@@ -8,7 +8,6 @@ Firefox clientside bookmarks of nextcloud
 > Sidebar: only the rights to search a list of bookmarks
 
 ## Available features
-> Screenshots coming soon
 - add bookmark
 - search bookmark
 - modify bookmark
