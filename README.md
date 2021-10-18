@@ -24,6 +24,9 @@ Firefox clientside bookmarks of nextcloud
 
 ## Screenshots
 
+### Addon - Settings
+![](screenshots/addon\_settings.png)
+
 ### Popup - without saved bookmark
 ![](screenshots/Popup\_BookmarkNotAdded.png)
 
