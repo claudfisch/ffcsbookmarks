@@ -48,7 +48,7 @@ document.querySelector('#saveSettings').addEventListener('click', () => {
 			url: GetDomObj('apiUrl').value,
 			user: GetDomObj('user').value,
 			pass: GetDomObj('pass').value,
-			sidebar: GetDomObj('modeSidebar').checked
+			//sidebar: GetDomObj('modeSidebar').checked
 		}
 	}).then(function(result)
 	{
@@ -67,7 +67,7 @@ browser.storage.local.get('ffcsbookmarksSettings').then(function(result)
 		CheckStorageVars(settings.user, 'user', 'Nextcloud username');
 		CheckStorageVars(settings.pass, 'pass', 'Nextcloud password');
 		GetDomObj('modeProtocol').checked = settings.proto;
-		GetDomObj('modeSidebar').checked = settings.sidebar;
+		//GetDomObj('modeSidebar').checked = settings.sidebar;
 		DebugOutput( '[LOAD] Local settings found: ' + JSON.stringify( settings ) );
 	}
 	else
