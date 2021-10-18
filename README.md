@@ -23,7 +23,7 @@ Firefox clientside bookmarks of nextcloud
 - Add a bookmark to an exists Folder
 
 ## Screenshots
-[[screenshots/Popup\_BookmarkNotAdded.png]]
+![](screenshots/Popup\_BookmarkNotAdded.png)
 
 ## Disclaimer
 **Ready for using**.
