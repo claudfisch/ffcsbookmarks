@@ -1,0 +1,34 @@
+.UnitVolumeObjectTable td
+{
+	padding-left: 25px;
+	padding-top: 10px;
+}
+
+.divBtnSearch
+{
+	float: right;
+	padding-left: 27%;
+	padding-right: 25%;
+}
+
+.btnSearch
+{
+	width: 250px;
+}
+
+#wrapper
+{
+	margin-left: 10px;
+}
+
+#myCard
+{
+	margin-top: 5px;
+}
+
+.UnitVolume
+{
+	padding-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+}

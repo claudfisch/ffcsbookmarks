@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="css/3rdparty/bootstrap.min.css" rel="stylesheet">
+    <link href="css/3rdparty/jquery-ui.min.css" rel="stylesheet">
+    <link href="css/ffcsbookmarks.css" rel="stylesheet">
+    <link href="css/ffcsbookmarks_settings.css" rel="stylesheet">
+  </head>
+  <body class="settings">
+    <form id="AddonSettingsForm">
+      <div class="UnitVolume">
+          <div class="UnitVolumeObject" id="lblSSL">Protocol</div>
+          <div class="form-control">
+              <input type="checkbox" name="mProtocol" id="modeProtocol" value="https">https</html>
+          </div>
+      </div><br />
+      <div class="UnitVolume">
+          <div class="UnitVolumeObject" id="lblApiUrl">API-URL:</div>
+          <input type="text" class="form-control" id="apiUrl" aria-describedby="lblSrvUrl" />
+      </div><br />
+      <div class="UnitVolume">
+          <div class="UnitVolumeObject" id="lblSrvUrl">Domain/IP:</div>
+          <input type="text" class="form-control" id="srvIP" aria-describedby="lblSrvUrl" />
+      </div><br />
+      <div class="UnitVolume">
+          <div class="UnitVolumeObject" id="lblUser">Username:</div>
+          <input type="text" class="form-control" id="user" aria-describedby="lblUser" />
+      </div><br />
+      <div class="UnitVolume">
+          <div class="UnitVolumeObject" id="lblPass">Password:</div>
+          <input type="password" class="form-control" id="pass" aria-describedby="lblPass" />
+      </div><br />
+      <div class="UnitVolume">
+          <div class="UnitVolumeObject" id="lblIsSidebar">Display mode:</div>
+          <div class="form-control">
+              <input type="radio" name="mSidebar" id="modePopup" value="false" checked="true">Popup</input>
+			  <input type="radio" name="mSidebar" id="modeSidebar" value="true">Sidebar</input>
+          </div>
+      </div>
+	  <br /><br />
+      <div class="btn-group">
+          <button type="button" class="btn btn-primary" id="saveSettings">Save</button>
+      </div>   
+    </form>
+    <div class="boxed" id="notification"></div>
+    <script src="js/3rdparty/chrome-promise.js"></script>
+    <script src="js/options.js"></script>
+  </body>
+</html>

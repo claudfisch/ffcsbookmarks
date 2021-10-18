@@ -1,0 +1,22 @@
+body.settings
+{
+    background-color: transparent;
+    min-height: 210px;
+    min-width: 460px;
+}
+
+#AddonSettingsForm
+{
+    margin: 15px;
+}
+
+div.UnitVolume
+{
+    width: 98%;
+}
+
+div.UnitVolumeObject
+{
+    width: 110px;
+    text-align: left;
+}

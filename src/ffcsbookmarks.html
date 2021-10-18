@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FF Clientside extension</title>
+        <link href="css/3rdparty/bootstrap.css" rel="stylesheet">
+        <link href="css/3rdparty/jquery-ui.min.css" rel="stylesheet">
+        <link href="css/ffcsbookmarks.css" rel="stylesheet">
+    </head>
+	<body>
+		<div>
+			<form id="save-bookmark-form">
+				<input type="hidden" class="form-control" id="bmID">
+				<div class="UnitVolume">
+					<span class="UnitVolumeObject" id="Box1">URL:</span>
+					<textarea class="form-control" id="bmUrl" aria-describedby="Box1"></textarea>
+				</div>
+				<div class="UnitVolume">
+					<span class="UnitVolumeObject" id="Box2">Title:</span>
+					<input type="text" class="form-control" id="bmTitle" aria-describedby="Box2">
+				</div>
+				<div class="UnitVolume">
+					<span class="UnitVolumeObject" id="Box3">Tags:</span>
+					<input type="text" class="form-control" id="bmTags" placeholder="Tag1,Tag2,Tag 3,..." aria-describedby="Box3">
+				</div>
+				<div class="UnitVolume">
+					<span class="UnitVolumeObject" id="Box4">Note:</span>
+					<textarea type="text" class="form-control" id="bmDescr" aria-describedby="Box4"></textarea>
+				</div>
+
+				<ul id="bookmarkModify" class="bookmarkModify">
+					<li>Created: <span id="bmCreatedAt"></span></li>
+					<li>Updated: <span id="bmUpdatedAt"></span></li>
+				</ul>
+
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary" id="btnBmSave">Add</button>
+				</div>
+				<div class="btn-group" style="float: center;">
+					<button type="button" class="btn btn-primary" id="btnBmUpdate">Save</button>
+				</div>
+				<div class="btn-group" style="float: center; display: none;">
+					<button type="button" class="btn btn-primary" id="btnBmSearch">Search</button>
+				</div>
+				<div class="btn-group" style="float: right;">
+					<button type="button" class="btn btn-info" id="chkToggleDelete">Enable Delete-Button</input>
+					<button type="button" class="btn btn-danger" id="btnBmDel" disabled>Delete</button>
+				</div>
+				<div style="clear: both;"></div>
+			</form>
+		</div>
+		
+		<div id="footer">
+			<div id="notification" class="column"></div>
+			<div class="column">
+				<div class="right">Search for bookmarks hit: Ctrl+Shift+Y</div>
+			</div>
+		</div>
+		
+		<!-- 3rd Parties -->
+		<script src="js/3rdparty/jquery-2.2.4.min.js"></script>
+		<script src="js/3rdparty/jquery-ui.min.js"></script>
+		<script src="js/3rdparty/bootstrap.js"></script>
+		<script src="js/3rdparty/chrome-promise.js"></script>
+		
+		<!-- Own Scrips -->
+		<script src="js/common.js"></script>
+		<script src="js/ffcsbookmarks.js"></script>
+	</body>
+</html>

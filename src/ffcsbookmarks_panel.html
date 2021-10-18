@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <title>FF Clientside extension</title>
+        <link href="css/3rdparty/bootstrap.css" rel="stylesheet">
+        <link href="css/3rdparty/jquery-ui.min.css" rel="stylesheet">
+        <link href="css/ffcsbookmarks_panel.css" rel="stylesheet">
+    </head>
+	<body>
+		<!--<h4>Search throught nextcloud bookmarks</h4>-->
+		<form id="save-bookmark-form">
+			<div class="UnitVolume">
+				<span class="UnitVolumeObject" id="Box1">URL:</span>
+				<textarea class="form-control" id="bmUrl" aria-describedby="Box1"></textarea>
+			</div><br />
+			<div class="UnitVolume">
+				<span class="UnitVolumeObject" id="Box2">Title:</span>
+				<input type="text" class="form-control" id="bmTitle" aria-describedby="Box2">
+			</div><br />
+			<div class="UnitVolume">
+				<span class="UnitVolumeObject" id="Box3">Tags:</span>
+				<input type="text" class="form-control" id="bmTags" placeholder="Tag1,Tag2,Tag 3,..." aria-describedby="Box3">
+			</div><br />
+			<div class="UnitVolume">
+			  <div class="UnitVolumeObject" id="lblIsSidebar">Search Modes:</div>
+				<table class="UnitVolumeObjectTable">
+					<tr>
+						<td><input type="checkbox" name="mSearch" id="modeUrl" value="1">Url</input></td>
+						<td><input type="checkbox" name="mSearch" id="modeTitle" value="2" checked="true">Title</input></td>
+						<td><input type="checkbox" name="mSearch" id="modeTags" value="3">Tags</input></td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="mSearchCond" id="modeOR" value="0" checked="true">OR</input></td>
+						<td><input type="radio" name="mSearchCond" id="modeAND" value="1">AND</input></td>
+					</tr>
+				</table>
+			</div><br />
+			<div class="UnitVolume">
+			  <div class="UnitVolumeObject" id="lblIsSidebar">Sort by:</div>
+				<table class="UnitVolumeObjectTable">
+					<tr>
+						<td><input type="radio" name="mSort" id="modeUrl" value="1">Url</input></td>
+						<td><input type="radio" name="mSort" id="modeTitle" value="2">Title</input></td>
+						<td><input type="radio" name="mSort" id="modeDescr" value="3">Description</input></td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="mSort" id="modePublic" value="4">Public</input></td>
+						<td><input type="radio" name="mSort" id="modeLastmodify" value="5" checked="true">Lastmodified</input></td>
+						<td><input type="radio" name="mSort" id="modeClickcount" value="6">Clickcount</input></td>
+					</tr>
+				</table>
+			</div><br />
+			<div class="btn-group divBtnSearch">
+				<button type="button" class="btn btn-primary btnSearch" id="btnBmSearch">Search</button>
+			</div>
+		</form>
+		
+		<div id="notification" class="column"></div>
+		
+		<br /><br /><hr />
+		<div id="wrapper"></div>
+		
+		<!--
+		<div id="footer">
+			<div class="column">
+				<div class="right"></div>
+			</div>
+		</div>
+		-->
+		
+		<!-- 3rd Parties -->
+		<script src="js/3rdparty/jquery-2.2.4.min.js"></script>
+		<script src="js/3rdparty/jquery-ui.min.js"></script>
+		<script src="js/3rdparty/bootstrap.js"></script>
+		<script src="js/3rdparty/chrome-promise.js"></script>
+		
+		<!-- Own Scrips -->
+		<script src="js/common.js"></script>
+		<script src="js/ffcsbookmarks_panel.js"></script>
+	</body>
+</html>
