@@ -11,6 +11,115 @@ function DebugOutput( strMessage ){if( isDebugging ) console.log( strMessage );}
 function GetDomObj( strID ){ return document.getElementById( strID ); }
 function CreateDomObj( strDomType ){ return document.createElement( strDomType ); }
 
+function SendAjaxRequest( strJsonRequest, funcOnSuccess, funcOnError )
+{
+	$.ajax( strJsonRequest )
+	.success( funcOnSuccess )
+	.error( funcOnError );
+}
+
+function AjaxResultValid( objAjaxResult )
+{
+	DebugOutput('common-function: ' + arguments.callee.name);
+	/*
+	if(objAjaxResult.status == 'error')
+	{
+		addNotification('error', "[500] Server Error: " + objAjaxResult.message);
+		return false;
+	}
+	*/
+	DebugOutput(objAjaxResult);
+	
+	/* Tags - result */
+	if( typeof(objAjaxResult) == typeof(undefined))
+	{
+		addNotification('error','No result found!');
+		return false;
+	}
+	
+	if ( typeof(objAjaxResult) == typeof(Array) )
+		return objAjaxResult;
+	
+	/* Bookmarks - result.data */
+	if(typeof objAjaxResult.data == 'undefined')
+	{
+		addNotification('error','No data found!');
+		return false;
+	}
+	
+	if ( typeof(objAjaxResult.data) == typeof(Array) )
+		return objAjaxResult;
+	
+	return new Array();
+}
+
+function ajaxErrorRequest(XMLHttpRequest, status, errorThrown)
+{
+	DebugOutput('ajax error');
+	DebugOutput('Status: ' + status.toString());
+	DebugOutput('Error: ' + errorThrown.toString());
+}
+
+/* ===============  TAGS - Begins =============== */
+function GetAllTags()
+{
+	DebugOutput('function: ' + arguments.callee.name );
+		
+	var URL = rhost + "/tag";
+
+	SendAjaxRequest({
+        url: URL,
+        method: "GET",
+        //basic authentication
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + creds);
+        },
+    },tagSuccessRequest,ajaxErrorRequest);
+}
+
+//How to call it - tag must to exists: EditTag("Lieferservice","Delivery Service");
+function EditTag(strOldTag,strNewTag)
+{
+	var URL = rhost + "/tag/" + strOldTag;
+	
+	SendAjaxRequest({
+		url: URL,
+        method: "PUT",
+        //basic authentication
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + creds);
+        },
+		data: { "name": strNewTag },
+		dataType: 'json',
+	}, editTagSuccessRequest, ajaxErrorRequest);
+}
+
+function DeleteTag(strDeleteTag)
+{
+	var URL = rhost + "/tag/" + strDeleteTag;
+	
+	SendAjaxRequest({
+		url: URL,
+        method: "DELETE",
+        //basic authentication
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + creds);
+        },
+	}, editTagSuccessRequest, ajaxErrorRequest);
+}
+
+function editTagSuccessRequest(result)
+{
+	DebugOutput('common-function: ' + arguments.callee.name);
+	DebugOutput('Status: ' + result.status );
+	
+	if ( result.status.toString().includes('success') )
+		addNotification('success', 'Tag action done');
+	else
+		addNotification('error', 'Ups, tag action canceled');
+}
+/* ===============  TAGS - Ends =============== */
+
 function GetBrowserInfos(funcCall)
 {
 	DebugOutput('function: ' + arguments.callee.name );

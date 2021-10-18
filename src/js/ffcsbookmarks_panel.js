@@ -209,54 +209,22 @@ function searchBookmark(strSearch)
     });
 }
 
-function GetAllTags()
+function tagSuccessRequest(result)
 {
-	DebugOutput('function: ' + arguments.callee.name );
-		
-	var URL = rhost + "/tag?";
-
-	$.ajax({
-        url: URL,
-        method: "GET",
-        //basic authentication
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Basic " + creds);
-        },
-    })
-	.success(function(result)
+	DebugOutput('Panel-Main-function: ' + arguments.callee.name);
+	
+	/* Result is a string seperated by comma */
+	DebugOutput('data: ' + result );
+	
+	for( tag of result.toString().split(",") )
 	{
-		if(result.status == 'error')
-		{
-            addNotification('error', "[500] Server Error: " + result.message);
-			return false;
-        }
-		
-		DebugOutput(result.status);
-		
-		/* Result is a string seperated by comma */
-		DebugOutput('data: ' + result );
-		if(typeof result == 'undefined')
-		{
-			addNotification('error','No tags found!');
-			return false;
-		}
-		
-		for( tag of result.toString().split(",") )
-		{
-			DebugOutput('>> Tagname: ' + tag );
+		DebugOutput('>> Tagname: ' + tag );
 
-			$('#' + tag.replace(" ", "_")).click(function()
-			{
-				searchBookmarkFromTagOnly(this.id.toString().replace("_"," "));
-			});
-		}
-	})
-	.error(function(XMLHttpRequest, status, errorThrown)
-	{
-        DebugOutput('ajax error');
-        DebugOutput('Status: ' + status.toString());
-        DebugOutput('Error: ' + errorThrown.toString());
-    });
+		$('#' + tag.replace(" ", "_")).click(function()
+		{
+			searchBookmarkFromTagOnly(this.id.toString().replace("_"," "));
+		});
+	}
 }
 
 /*

@@ -13,10 +13,11 @@ Firefox clientside bookmarks of nextcloud
 - search results tags clickable and search instantly all bookmarks with that tag
 - modify bookmark
 - delete bookmark
-
-## Missing features **(needed ??)**
+- Tag add
 - Tag modify
 - Tag delete
+
+## Missing features **(needed ??)**
 - Folder create
 - Folder modify
 - Folder delete

@@ -41,6 +41,21 @@ function mainBookmark(item)
         deleteBookmark();
     });
 	
+	$('#pills-tagedit-tab').click(function (e)
+	{
+		GetAllTags();
+	});
+	
+	$('#btnBmRenameTag').click(function (e)
+	{
+		tagRename();
+	});
+	
+	$('#btnBmDelTag').click(function (e)
+	{
+        tagDelete();
+    });
+	
 	$('#chkToggleDelete').click(function (e)
 	{
 		$('#btnBmDel').prop('disabled', function(i, v)
@@ -49,6 +64,18 @@ function mainBookmark(item)
 				GetDomObj('chkToggleDelete').innerHTML = "Disable Delete-Button";
 			else
 				GetDomObj('chkToggleDelete').innerHTML = "Enable Delete-Button";
+			return !v;
+		});
+	});
+	
+	$('#chkToggleDeleteTag').click(function (e)
+	{
+		$('#btnBmDelTag').prop('disabled', function(i, v)
+		{ 
+			if ( v )
+				GetDomObj('chkToggleDeleteTag').innerHTML = "Disable Delete-Button";
+			else
+				GetDomObj('chkToggleDeleteTag').innerHTML = "Enable Delete-Button";
 			return !v;
 		});
 	});
@@ -78,6 +105,83 @@ function fillForm(bTab)
 		$('#chkToggleDelete').show();
 		$('#btnBmUpdate').show();
 		boolSearchFound = false;
+	}
+}
+
+function tagDelete()
+{
+	DebugOutput('function: ' + arguments.callee.name);
+	var objSelectTag = GetDomObj('bmTagOld');
+	
+	if ( objSelectTag.selectedIndex != -1 )
+	{
+		var strDeleteTag = objSelectTag.item( objSelectTag.selectedIndex).value.toString().trim();
+		
+		DebugOutput('Tag delete: ' + strDeleteTag );
+		
+		DeleteTag( strDeleteTag );
+		
+		window.setTimeout( GetAllTags, 2000);
+		window.setTimeout( function(){ GetDomObj('chkToggleDeleteTag').click();}, 2000);
+	}
+	else
+	{
+		addNotification('error','No Old-Tag selected!');
+	}
+}
+
+function tagRename()
+{
+	DebugOutput('function: ' + arguments.callee.name);
+	var objSelectTag = GetDomObj('bmTagOld');
+	var strNewTag = GetDomObj('bmTagNew').value.toString().trim();
+	
+	if ( objSelectTag.selectedIndex != -1 && strNewTag.length > 0 )
+	{
+		var strOldTag = objSelectTag.item( objSelectTag.selectedIndex).value.toString().trim();
+
+		DebugOutput("Old-Tag-value: " + strOldTag );
+		DebugOutput("New-Tag-value: " + strNewTag );
+
+		if ( strOldTag.length > 0 && strNewTag.length > 0 )
+		{	
+			EditTag( strOldTag, strNewTag );
+			
+			addNotification('success','Tag "' + strOldTag + '" renamed to "' + strNewTag + '".');
+			
+			window.setTimeout( GetAllTags, 2000);
+		}
+		else
+		{
+			addNotification('error','Tag "' + strOldTag + '" renamed to "' + strNewTag + '".');
+		}
+	}
+	else
+	{
+		addNotification('error','No Old-Tag selected or New-Tag is empty!');
+	}
+}
+
+function tagSuccessRequest(result)
+{
+	DebugOutput('Popup-function: ' + arguments.callee.name);
+	var objSelectTag = GetDomObj('bmTagOld');
+	objSelectTag.innerHTML = "";
+	
+	//result = AjaxResultValid( result );
+	
+	/* Result is a string seperated by comma */
+	DebugOutput('data: ' + result );
+	//DebugOutput('type: ' + typeof(result) );
+	
+	for( tag of result )
+	{
+		DebugOutput('Option >> Tagname: ' + tag );
+		var opt = CreateDomObj('option');
+		opt.value = tag;
+		opt.innerHTML = tag;
+		
+		objSelectTag.appendChild(opt);
 	}
 }
 
