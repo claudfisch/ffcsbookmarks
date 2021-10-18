@@ -34,6 +34,9 @@ Firefox clientside bookmarks of nextcloud
 ### Popup - with saved bookmark
 ![](screenshots/Popup\_BookmarkAdded.png)
 
+### Popup - Modify Tag
+![](screenshots/Popup\_TagModifying.png)
+
 ### Sidebar - open with hotkey Strg+Shift+Y
 ![](screenshots/Sidebar\_Empty.png)
 
