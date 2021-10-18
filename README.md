@@ -14,7 +14,7 @@ Firefox clientside bookmarks of nextcloud
 - modify bookmark
 - delete bookmark
 
-## Missing features
+## Missing features **(needed ??)**
 - Tag modify
 - Tag delete
 - Folder create
