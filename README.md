@@ -49,4 +49,5 @@ I modified the Github-User 'damko' file 'https://github.com/damko/freedommarks-b
 So, that he has a working solution of my hard work to get it working correctly, too
 
 ## Installation
+Your Nextcloud-Server should installed the package bookmarks otherwise this addon is useless.
 Exact the same like by 'https://github.com/damko/freedommarks-browser-webextension' - scroll down at bottom! Find the debugging thing and you get my extension working.
