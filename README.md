@@ -23,7 +23,18 @@ Firefox clientside bookmarks of nextcloud
 - Add a bookmark to an exists Folder
 
 ## Screenshots
+
+### Popup - without saved bookmark
 ![](screenshots/Popup\_BookmarkNotAdded.png)
+
+### Popup - with saved bookmark
+![](screenshots/Popup\_BookmarkAdded.png)
+
+### Sidebar - open with hotkey Strg+Shift+Y
+![](screenshots/Sidebar\_Empty.png)
+
+### Sidebar - with search results
+![](screenshots/Sidebar\_SearchResults.png)
 
 ## Disclaimer
 **Ready for using**.
