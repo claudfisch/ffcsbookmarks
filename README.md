@@ -9,7 +9,8 @@ Firefox clientside bookmarks of nextcloud
 
 ## Available features
 - add bookmark
-- search bookmark
+- search bookmark by url,title,tag
+- search results tags clickable and search instantly all bookmarks with that tag
 - modify bookmark
 - delete bookmark
 
