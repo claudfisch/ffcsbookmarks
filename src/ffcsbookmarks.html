@@ -24,19 +24,19 @@
 			<div class="tab-pane fade show active" id="pills-bookmarkadd" role="tabpanel" aria-labelledby="pills-bookmarkadd-tab">
 				<form id="save-bookmark-form">
 					<input type="hidden" class="form-control" id="bmID">
-					<div class="UnitVolume">
+					<div class="UnitVolume list-group list-group-horizontal">
 						<span class="UnitVolumeObject" id="Box1">URL:</span>
 						<textarea class="form-control" id="bmUrl" aria-describedby="Box1"></textarea>
 					</div>
-					<div class="UnitVolume">
+					<div class="UnitVolume list-group list-group-horizontal">
 						<span class="UnitVolumeObject" id="Box2">Title:</span>
 						<input type="text" class="form-control" id="bmTitle" aria-describedby="Box2">
 					</div>
-					<div class="UnitVolume">
+					<div class="UnitVolume list-group list-group-horizontal">
 						<span class="UnitVolumeObject" id="Box3">Tags:</span>
 						<input type="text" class="form-control" id="bmTags" placeholder="Tag1,Tag2,Tag 3,..." aria-describedby="Box3">
 					</div>
-					<div class="UnitVolume">
+					<div class="UnitVolume list-group list-group-horizontal">
 						<span class="UnitVolumeObject" id="Box4">Note:</span>
 						<textarea type="text" class="form-control" id="bmDescr" aria-describedby="Box4"></textarea>
 					</div>
@@ -56,33 +56,35 @@
 						<button type="button" class="btn btn-primary" id="btnBmSearch">Refresh</button>
 					</div>
 					<div class="btn-group" style="float: right;">
-						<button type="button" class="btn btn-info" id="chkToggleDelete">Enable Delete-Button</input>
+						<button type="button" class="btn btn-info" id="chkToggleDelete">Enable Delete-Button</button>
 						<button type="button" class="btn btn-danger" id="btnBmDel" disabled>Delete</button>
 					</div>
 					<div style="clear: both;"></div>
 				</form>
 			</div>
 			<div class="tab-pane fade" id="pills-tagedit" role="tabpanel" aria-labelledby="pills-tagedit-tab">
-				<div class="UnitVolume">
-					<span class="UnitVolumeObject" id="Box5">Old-Tag:</span>
+				<div class="UnitVolume list-group list-group-horizontal">
+					<span class="UnitVolumeObject" id="Box5">Taglist:</span>
 					<select size="10" class="form-control" id="bmTagOld" aria-describedby="Box5">
 					</select>
 				</div>
-				<div class="UnitVolume">
-					<span class="UnitVolumeObject" id="Box6">New-Tag:</span>
+				<div class="UnitVolume list-group list-group-horizontal">
+					<span class="UnitVolumeObject" id="Box6">Rename:</span>
 					<input type="text" class="form-control" id="bmTagNew" placeholder="rename tag with" aria-describedby="Box6">
 				</div>
 				<div class="btn-group" style="float: center;">
 					<button type="button" class="btn btn-danger" id="btnBmRenameTag">Rename</button>
 				</div>
 				<div class="btn-group" style="float: right;">
-					<button type="button" class="btn btn-info" id="chkToggleDeleteTag">Enable Delete-Button</input>
+					<button type="button" class="btn btn-info" id="chkToggleDeleteTag">Enable Delete-Button</button>
 					<button type="button" class="btn btn-danger" id="btnBmDelTag" disabled>Delete</button>
 				</div>
 			</div>
 		</div>
 		<div id="footer">
 			<div id="notification" class="column"></div>
+			
+			<hr />
 			<div class="column">
 				<div class="right">Search for bookmarks hit: Ctrl+Shift+Y</div>
 			</div>

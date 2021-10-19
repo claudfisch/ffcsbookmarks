@@ -1,5 +1,5 @@
 /* Variables */
-let isDebugging = true;
+let isDebugging = false;
 let isReady = false;
 jQuery.support.cors = true;
 let creds;
@@ -153,6 +153,7 @@ function madeSearchReady( strSearchType, arrSearchElements )
 		tags[]=firsttag&tags[]=secondtag&...
 		search[]=url&search[]=title&search[]=description
 	*/
+	/*
 	var defaultBaseString = strSearchType + "[]=";
 	var strSearch = "";
 	
@@ -163,7 +164,12 @@ function madeSearchReady( strSearchType, arrSearchElements )
 		else
 			strSearch += defaultBaseString + arrSearchElements[index];
 	}
+	
 	return strSearch;
+	*/
+	
+	return strSearchType + "[]=" + arrSearchElements.join('&' + strSearchType + "[]=");
+	//DebugOutput("Join test: " + strSearchTest );
 }
 
 // https://gist.github.com/tored/3868138
@@ -187,15 +193,18 @@ function addNotification(type, message)
 {
     DebugOutput('function: ' + arguments.callee.name);
 
-    var div = document.getElementById('notification');
+    var div = GetDomObj('notification');
     div.innerHTML = "";
 
-    var d = document.createElement("div");
-    if(type == "success") d.className = "notify";
-    if(type == "error") d.className = "alarm";
-
-    var span = document.createElement("span");
+    var d = CreateDomObj("div");
+	d.className = ( type == "success" ? "notify" : "alarm" );
+	
+	DebugOutput("Classname: " + d.className);
+	
+    var span = CreateDomObj("span");
     span.textContent = message;
+	
+	DebugOutput("Spantext: " + span.textContent);
 
     div.appendChild(d).appendChild(span);
     $('#notification').show(0).delay(2500).hide(0);

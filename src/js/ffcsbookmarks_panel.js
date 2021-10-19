@@ -45,18 +45,18 @@ function searchRun()
 {
 	DebugOutput('Panel-Main-function: ' + arguments.callee.name);
 	var strSearch = "";
-	var strSearchUrl = madeSearchReady( "search", new Array( GetDomObj("bmUrl").value ).map(s => s.trim()) );
-	var strSearchTitle = madeSearchReady( "search", new Array( GetDomObj("bmTitle").value ).map(s => s.trim()) );
+	var strSearchUrl = madeSearchReady( "search", new Array( GetDomObj("bmUrl").value.trim() ) );
+	var strSearchTitle = madeSearchReady( "search", new Array( GetDomObj("bmTitle").value.trim() ) );
 	var strSearchTags = "";
 	var strCond = "&conjunction=";
 	var strSortBy = "";
 	
 	if ( GetDomObj("bmTags").value.includes(",") )
 		/* more tags */
-		strSearchTags = madeSearchReady( "tags", GetDomObj("bmTags").value.split(",").map(s => s.trim()) );
+		strSearchTags = madeSearchReady( "tags", GetDomObj("bmTags").value.split(",").map(s => s.trim().toLowerCase()) );
 	else
 		/* single tag */
-		strSearchTags = madeSearchReady( "tags", new Array( GetDomObj("bmTags").value ).map(s => s.trim()) );
+		strSearchTags = madeSearchReady( "tags", new Array( GetDomObj("bmTags").value.trim().toLowerCase() ) );
 	
 	if ( $('#modeUrl')[0].checked )
 		strSearch += strSearchUrl;
@@ -164,7 +164,7 @@ function searchBookmark(strSearch)
 			cardLink01.innerHTML = "Go to";
 			
 			var cardListGroup = CreateDomObj("ul");
-			cardListGroup.className = "list-group list-group-flush";
+			cardListGroup.className = "list-group list-group-horizontal";
 			
 			if ( foundBookmark.tags.length > 0 )
 			{
@@ -172,7 +172,7 @@ function searchBookmark(strSearch)
 				cardListGroupHeader.className = "card-header";
 				cardListGroupHeader.innerHTML = "Tags";
 				cardListGroup.appendChild(cardListGroupHeader);
-
+				
 				for ( tag of foundBookmark.tags )
 				{
 					var cardListGroupItemButton = CreateDomObj("button");

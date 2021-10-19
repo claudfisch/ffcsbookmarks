@@ -26,10 +26,10 @@ div.UnitVolume
 
 span.UnitVolumeObject
 {
-    min-width: 70px;
+    min-width: 85px;
     vertical-align: top;
-   
 	font-size: 1.7em;
+	text-align: center;
 }
 
 div.column

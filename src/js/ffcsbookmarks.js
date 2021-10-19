@@ -27,7 +27,7 @@ function mainBookmark(item)
 	
 	$('#btnBmSearch').click(function (e)
 	{
-        var strSearch = madeSearchReady( "search", new Array( GetDomObj("bmTitle").value ) );
+        var strSearch = madeSearchReady( "search", new Array( GetDomObj("bmTitle").value.toString().trim() ) );
 		searchBookmark( strSearch );
 	});
 	
@@ -86,7 +86,7 @@ function fillForm(bTab)
 	DebugOutput('function: ' + arguments.callee.name);
     DebugOutput('URL: ' + bTab.url);
 	
-	var strSearch = madeSearchReady( "search", new Array( bTab.title ) );
+	var strSearch = madeSearchReady( "search", new Array( bTab.title.toString().trim() ) );
 	searchBookmark( strSearch );
 	
 	if ( !boolSearchFound )
@@ -126,7 +126,7 @@ function tagDelete()
 	}
 	else
 	{
-		addNotification('error','No Old-Tag selected!');
+		addNotification('error','Select first a tag from list!');
 	}
 }
 
@@ -134,7 +134,7 @@ function tagRename()
 {
 	DebugOutput('function: ' + arguments.callee.name);
 	var objSelectTag = GetDomObj('bmTagOld');
-	var strNewTag = GetDomObj('bmTagNew').value.toString().trim();
+	var strNewTag = GetDomObj('bmTagNew').value.toString().trim().toLowerCase();
 	
 	if ( objSelectTag.selectedIndex != -1 && strNewTag.length > 0 )
 	{
@@ -158,7 +158,7 @@ function tagRename()
 	}
 	else
 	{
-		addNotification('error','No Old-Tag selected or New-Tag is empty!');
+		addNotification('error','No listed Tag selected or rename field is empty!');
 	}
 }
 
@@ -258,7 +258,7 @@ function addBookmark(bTab)
 	DebugOutput('function: ' + arguments.callee.name);
 	// DebugOutput('RHOST: ' + rhost);
 	// DebugOutput('Creds: ' + creds);
-	DebugOutput( GetDomObj('bmTags').value.split(',') );
+	DebugOutput( GetDomObj('bmTags').value.toString().trim().toLowerCase().split(',') );
 	
 	var bmUrl = $('#bmUrl').val().trim().replace(/\/$/, "");
 	DebugOutput('BookmarkUrl: ' + bmUrl);
@@ -274,7 +274,7 @@ function addBookmark(bTab)
             "url": bmUrl,
             "title": $('#bmTitle').val(),
             "description": $('#bmDescr').val(),
-			"tags": GetDomObj('bmTags').value.split(',').map(s => s.trim()),
+			"tags": GetDomObj('bmTags').value.trim().toLowerCase().split(','),
             "is_public": true
         },
         dataType: 'json',
