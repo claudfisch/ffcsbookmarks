@@ -1,0 +1,56 @@
+{
+  "name": "ffcsbookmarks",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "FireFox extension for nextcloud bookmarks\n\n> Use the utility of NextCloud 3rd. Party password generator!",
+  "homepage_url": "https://addons.firefox.com/",
+  
+  "options_ui": { "page": "ffcsbookmarks_options.html" },
+  
+  "background": { "scripts": ["js/background.js"] },
+
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": "icons/ffcsbookmarks_dark_32x32.png",
+
+    "theme_icons": [{
+      "light": "icons/ffcsbookmarks_light_32x32.png",
+      "dark": "icons/ffcsbookmarks_dark_32x32.png",
+      "size": 32
+    }, {
+      "light": "icons/ffcsbookmarks_light_48x48.png",
+      "dark": "icons/ffcsbookmarks_dark_48x48.png",
+      "size": 48
+    }],
+    "default_title": "ffcsbookmarks",
+    "default_popup": "ffcsbookmarks.html"
+  },
+  
+  "sidebar_action": {
+    "default_icon": "icons/star.png",
+    "default_title" : "Firefox Clientside Bookmarks (Nextcloud)",
+    "default_panel": "ffcsbookmarks_panel.html"
+  },
+  
+  "commands": {
+    "_execute_sidebar_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      }
+    }
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "ffcsbookmarks.extension@kevmitnick.org",
+      "strict_min_version": "48.0"
+    }
+  },
+  
+  "permissions": [
+	"storage",
+	"tabs",
+	"activeTab",
+	"notifications"
+	]
+}
